@@ -7,8 +7,8 @@
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "dedicateddef",
-				"poolName": "dedicateddef"
+				"databaseName": "defdedicated",
+				"poolName": "defdedicated"
 			},
 			"resultLimit": 5000
 		},

@@ -1,14 +1,14 @@
 {
-	"name": "SQL script 1",
+	"name": "select",
 	"properties": {
 		"content": {
-			"query": "SELECT * FROM categories\n",
+			"query": "SELECT * FROM train\n",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "dedicateddef",
-				"poolName": "dedicateddef"
+				"databaseName": "defdedicated",
+				"poolName": "defdedicated"
 			},
 			"resultLimit": 5000
 		},
