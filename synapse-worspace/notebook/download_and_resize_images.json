@@ -8,16 +8,16 @@
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "224g",
-			"driverCores": 32,
-			"executorMemory": "224g",
-			"executorCores": 32,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "a4de8630-4eca-4e94-a3d4-38ddc51ebe55"
+				"spark.autotune.trackingId": "74f852b2-da12-4263-8e57-94b11adbfa50"
 			}
 		},
 		"metadata": {
@@ -31,19 +31,19 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/a1a27566-3e3c-42d7-a372-692095cd8521/resourceGroups/SerengetiDataLab/providers/Microsoft.Synapse/workspaces/serengetidatalabqezfaqkj/bigDataPools/defsparkpool",
+				"id": "/subscriptions/b4ddefc7-2d33-4fb2-b656-b3239eb6b0d0/resourceGroups/Serengeti/providers/Microsoft.Synapse/workspaces/serengetidatalabatqdhj24/bigDataPools/defsparkpool",
 				"name": "defsparkpool",
 				"type": "Spark",
-				"endpoint": "https://serengetidatalabqezfaqkj.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/defsparkpool",
+				"endpoint": "https://serengetidatalabatqdhj24.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/defsparkpool",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.2",
-				"nodeCount": 3,
-				"cores": 32,
-				"memory": 224,
-				"automaticScaleJobs": false
+				"nodeCount": 10,
+				"cores": 16,
+				"memory": 112,
+				"automaticScaleJobs": true
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -87,8 +87,8 @@
 					"sc = SparkSession.builder.getOrCreate()\n",
 					"token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary\n",
 					"\n",
-					"vault_name = 'serengetikeyvaultqezfaqk'\n",
-					"linkConnectionName = ''\n",
+					"vault_name = 'serengetikeyvaultatqdhj2'\n",
+					"linkConnectionName = 'AzureKeyVault'\n",
 					"\n",
 					"pool_connection_string = mssparkutils.credentials.getSecret(vault_name, 'DedicatedPool-Jdbc-ConnectionString', linkConnectionName)\n",
 					"adls_connection_string = mssparkutils.credentials.getSecret(vault_name, 'ADLS-ConnectionString', linkConnectionName)"
@@ -130,7 +130,7 @@
 					"\n",
 					"df_val = df_val.toPandas()"
 				],
-				"execution_count": 117
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -152,7 +152,7 @@
 					"df_train[\"image_link\"] = df_train[\"image_id\"].apply(imageURL)\n",
 					"df_val[\"image_link\"] = df_val[\"image_id\"].apply(imageURL)"
 				],
-				"execution_count": 118
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -180,7 +180,7 @@
 					"    except Exception as e:\n",
 					"        print(e)"
 				],
-				"execution_count": 119
+				"execution_count": 5
 			},
 			{
 				"cell_type": "code",
@@ -242,7 +242,7 @@
 					"\n",
 					""
 				],
-				"execution_count": 120
+				"execution_count": 6
 			},
 			{
 				"cell_type": "code",
@@ -260,7 +260,7 @@
 				"source": [
 					"initialize_adls_account()"
 				],
-				"execution_count": 121
+				"execution_count": 7
 			},
 			{
 				"cell_type": "code",
@@ -280,7 +280,7 @@
 					"    image_url, image_name, category, table = args\n",
 					"    upload_image(image_url, image_name, category, table)"
 				],
-				"execution_count": 122
+				"execution_count": 8
 			},
 			{
 				"cell_type": "code",
@@ -299,7 +299,7 @@
 					"for item in df_train.iloc:\n",
 					"    upload_image(item.image_link, item.image_id.split('/').pop(), item.category_name, 'train')"
 				],
-				"execution_count": 123
+				"execution_count": 12
 			},
 			{
 				"cell_type": "code",
@@ -318,7 +318,7 @@
 					"for item in df_val.iloc:\n",
 					"    upload_image(item.image_link, item.image_id.split('/').pop(), item.category_name, 'val')"
 				],
-				"execution_count": null
+				"execution_count": 13
 			}
 		]
 	}
