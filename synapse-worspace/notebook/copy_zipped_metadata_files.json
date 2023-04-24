@@ -18,7 +18,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "40feb288-8ba1-4e7e-a322-0d0aee5b3d48"
+				"spark.autotune.trackingId": "6f35aba6-e2c7-4fa8-a7df-7610d8d8f5e0"
 			}
 		},
 		"metadata": {
@@ -67,7 +67,7 @@
 					"#r \"nuget: Microsoft.Azure.Storage.Blob\"\n",
 					"#r \"nuget: Microsoft.Azure.Storage.File\""
 				],
-				"execution_count": 11
+				"execution_count": 23
 			},
 			{
 				"cell_type": "code",
@@ -94,7 +94,7 @@
 					"using Microsoft.Azure.Storage.Auth;\n",
 					"using Microsoft.Spark.Extensions.Azure.Synapse.Analytics.Notebook.MSSparkUtils;"
 				],
-				"execution_count": 12
+				"execution_count": 24
 			},
 			{
 				"cell_type": "code",
@@ -118,7 +118,7 @@
 					"\n",
 					"string destConnectionString = Credentials.GetSecret(vaultName,\"ADLS-ConnectionString\", linkConnectionName);"
 				],
-				"execution_count": 13
+				"execution_count": 25
 			},
 			{
 				"cell_type": "code",
